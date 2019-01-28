@@ -1,10 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {ContactsModule} from './contacts/contacts.module';
 import {LoginModule} from './login/login.module';
+import {MaterialModule} from './material.module';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,11 @@ import {LoginModule} from './login/login.module';
     BrowserModule,
     AppRoutingModule,
     ContactsModule,
-    LoginModule
+    LoginModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
