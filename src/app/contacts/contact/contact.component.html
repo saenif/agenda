@@ -14,22 +14,22 @@
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *matCellDef="let contact"> {{contact.id}} </td>
+  <ng-container matColumnDef="no">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let i = index"> {{i + 1}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="first name">
+  <ng-container matColumnDef="firstName">
     <th mat-header-cell *matHeaderCellDef> First Name </th>
     <td mat-cell *matCellDef="let contact"> {{contact.firstName}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="last name">
+  <ng-container matColumnDef="lastName">
     <th mat-header-cell *matHeaderCellDef> Last Name </th>
     <td mat-cell *matCellDef="let contact"> {{contact.lastName}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="phone number">
+  <ng-container matColumnDef="phoneNumber">
     <th mat-header-cell *matHeaderCellDef> Phone Number </th>
     <td mat-cell *matCellDef="let contact"> {{contact.phoneNumber}} </td>
   </ng-container>
@@ -39,6 +39,19 @@
     <td mat-cell *matCellDef="let contact"> {{contact.email}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="editIcon">
+    <th mat-header-cell *matHeaderCellDef> Edit </th>
+    <td mat-cell *matCellDef="let contact"><i class="material-icons" (click)="openDialog()">edit</i> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="deleteIcon">
+    <th mat-header-cell *matHeaderCellDef> Delete </th>
+    <td mat-cell *matCellDef="let contact"><i class="material-icons" (click)="openDialog()">delete</i> </td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<button mat-button class="add-contact" (click)="openDialog()"><i class="material-icons">add</i> Add Contact</button>
+
+

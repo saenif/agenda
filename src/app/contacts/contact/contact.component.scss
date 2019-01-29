@@ -1,3 +1,15 @@
 table {
   width: 100%;
 }
+
+.material-icons:hover {
+  cursor: pointer;
+}
+
+.add-contact {
+  height: 45px;
+  width: 100%;
+  background-color: white;
+  border: rgba(0,0,0,.12) solid 1px;
+  margin: 5px 0;
+}
