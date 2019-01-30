@@ -14,8 +14,6 @@ import {CONTACT} from '../dummy-contacts';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  fakeData: any = {};
-
   displayedColumns: string[] = ['select', 'no', 'firstName', 'lastName', 'phoneNumber', 'email', 'editIcon', 'deleteIcon'];
   dataSource = new MatTableDataSource<Contact>(CONTACT);
   selection = new SelectionModel<Contact>(true, []);
@@ -42,6 +40,17 @@ export class ContactComponent {
       this.update(result, index);
     });
   }
+
+  add(): void {
+    const newContact: Contact = {
+      firstName: '',
+      lastName: '',
+      phoneNumber: '',
+      email: ''
+    };
+    this.edit(newContact, this.dataSource.data.length);
+  }
+
 
   delete(index: number): void {
     const newDataSource = this.dataSource.data;
