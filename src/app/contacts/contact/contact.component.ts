@@ -32,15 +32,14 @@ export class ContactComponent {
       this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
-  openDialog(): void {
+  openDialog(contact: Contact, index?: number): void {
     const dialogRef = this.dialog.open(ContactModalComponent, {
       width: '300px',
-      data: {name: 'fakeName', animal: 'fakeAnimal'}
+      data: {contact}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.fakeData = result;
+      this.update(result, index);
     });
   }
 
@@ -57,6 +56,16 @@ export class ContactComponent {
     });
     this.dataSource.data = newDataSource;
     this.selection.clear();
+  }
+
+  edit(contact: Contact, index: number): void {
+    this.openDialog(contact, index);
+  }
+
+  private update(contact: Contact, index: number): void {
+    const newDataSource = this.dataSource.data;
+    newDataSource[index] = contact;
+    this.dataSource.data = newDataSource;
   }
 
   constructor(public dialog: MatDialog) {

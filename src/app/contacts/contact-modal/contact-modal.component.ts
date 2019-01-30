@@ -20,16 +20,23 @@ export class ContactModalComponent {
     public dialogRef: MatDialogRef<ContactModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Contact) {
 
+    const contact: Contact = this.data['contact'];
     this.userForm = this.formBuilder.group({
-      'name': ['', Validators.required],
-      'email': ['', [Validators.required, ValidationService.emailValidator]],
-      'profile': ['', [Validators.required, Validators.minLength(10)]]
+      'firstName': [contact.firstName, Validators.min(1)],
+      'lastName': [contact.lastName, Validators.min(1)],
+      'phoneNumber': [contact.phoneNumber, Validators.min(1)],
+      'email': [contact.email, Validators.min(1)]
     });
   }
 
-  saveUser(): void {
+  saveContact(): Contact {
     if (this.userForm.dirty && this.userForm.valid) {
-      alert(`Name: ${this.userForm.value.name} Email: ${this.userForm.value.email}`);
+      return {
+        firstName: this.userForm.value.firstName,
+        lastName: this.userForm.value.lastName,
+        phoneNumber: this.userForm.value.phoneNumber,
+        email: this.userForm.value.email
+      };
     }
   }
 
