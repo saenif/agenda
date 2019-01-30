@@ -10,6 +10,12 @@ table {
   height: 45px;
   width: 100%;
   background-color: white;
-  border: rgba(0,0,0,.12) solid 1px;
   margin: 5px 0;
+}
+
+.delete-selected {
+  height: 45px;
+  width: 100%;
+  margin: 5px 0;
+  color: red;
 }

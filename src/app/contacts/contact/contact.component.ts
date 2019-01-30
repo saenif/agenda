@@ -8,7 +8,6 @@ import {ContactModalComponent} from '../contact-modal/contact-modal.component';
 import {CONTACT} from '../dummy-contacts';
 
 
-
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -45,5 +44,21 @@ export class ContactComponent {
     });
   }
 
-  constructor(public dialog: MatDialog) {}
+  delete(index: number): void {
+    const newDataSource = this.dataSource.data;
+    newDataSource.splice(index, 1);
+    this.dataSource.data = newDataSource;
+  }
+
+  deleteSelected() {
+    const newDataSource = this.dataSource.data;
+    this.selection.selected.forEach((item) => {
+      this.delete(this.dataSource.data.indexOf(item));
+    });
+    this.dataSource.data = newDataSource;
+    this.selection.clear();
+  }
+
+  constructor(public dialog: MatDialog) {
+  }
 }
