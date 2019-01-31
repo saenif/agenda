@@ -36,7 +36,6 @@ export class ContactModalComponent {
         lastName: this.contactForm.value.lastName,
         phoneNumber: this.contactForm.value.phoneNumber,
         email: this.contactForm.value.email,
-        userName: '',
         password: ''
       };
     }

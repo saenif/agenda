@@ -19,7 +19,7 @@ export class LoginComponent {
     private authService: AuthService) {
 
     this.loginForm = this.formBuilder.group({
-      'userName': ['', Validators.minLength(2)],
+      'email': ['', Validators.minLength(2)],
       'password': ['', Validators.minLength(2)]
     });
   }
@@ -27,12 +27,12 @@ export class LoginComponent {
   login(): void {
     if (this.loginForm.dirty && this.loginForm.valid) {
       const user: User = {
-        userName: this.loginForm.value.userName,
+        email: this.loginForm.value.email,
         password: this.loginForm.value.password
       };
 
       if (this.authService.validateUser(user)) {
-        alert(user.userName);
+        alert(user.email);
         this.router.navigate(['contacts']);
       }
     }

@@ -14,7 +14,7 @@ export class AuthService {
   }
 
   public validateUser(user: User): boolean {
-    const validContact: Contact = DUMMY_CONTACTS.find(contact => contact.userName === user.userName);
+    const validContact: Contact = DUMMY_CONTACTS.find(contact => contact.email === user.email);
     if (validContact) {
       this.userLogged = true;
       return true;

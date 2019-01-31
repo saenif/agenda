@@ -47,7 +47,6 @@ export class ContactComponent {
       lastName: '',
       phoneNumber: '',
       email: '',
-      userName: '',
       password: ''
     };
     this.edit(newContact, this.dataSource.data.length);
