@@ -35,7 +35,9 @@ export class ContactModalComponent {
         firstName: this.contactForm.value.firstName,
         lastName: this.contactForm.value.lastName,
         phoneNumber: this.contactForm.value.phoneNumber,
-        email: this.contactForm.value.email
+        email: this.contactForm.value.email,
+        userName: '',
+        password: ''
       };
     }
   }

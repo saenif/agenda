@@ -2,9 +2,9 @@
 
   <form [formGroup]="loginForm" (submit)="login()" class="layout">
     <h1>Login!</h1>
-    <label for="user">User</label>
-    <input formControlName="user" id="user"/>
-    <app-control-messages [control]="loginForm.controls.user"></app-control-messages>
+    <label for="userName">User Name</label>
+    <input formControlName="userName" id="userName"/>
+    <app-control-messages [control]="loginForm.controls.userName"></app-control-messages>
 
     <label for="password">Password</label>
     <input formControlName="password" id="password"/>

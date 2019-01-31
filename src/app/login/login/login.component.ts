@@ -1,5 +1,9 @@
-import {Component, Inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+
+import {User} from '../../communication/user.interface';
+import {AuthService} from '../../communication/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,24 +14,27 @@ export class LoginComponent {
   loginForm: any;
 
   constructor(
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService) {
 
-    // const contact: Contact = this.data['contact'];
     this.loginForm = this.formBuilder.group({
-      'user': ['', Validators.min(1)],
-      'password': ['', Validators.min(1)]
+      'userName': ['', Validators.minLength(2)],
+      'password': ['', Validators.minLength(2)]
     });
   }
 
   login(): void {
     if (this.loginForm.dirty && this.loginForm.valid) {
-      // return {
-      //   firstName: this.loginForm.value.firstName,
-      //   lastName: this.loginForm.value.lastName,
-      //   phoneNumber: this.loginForm.value.phoneNumber,
-      //   email: this.loginForm.value.email
-      // };
-      alert(this.loginForm.value.user);
+      const user: User = {
+        userName: this.loginForm.value.userName,
+        password: this.loginForm.value.password
+      };
+
+      if (this.authService.validateUser(user)) {
+        alert(user.userName);
+        this.router.navigate(['contacts']);
+      }
     }
   }
 }

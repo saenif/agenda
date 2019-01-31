@@ -5,7 +5,7 @@ import {MatDialog, MatTableDataSource} from '@angular/material';
 
 import {Contact} from '../contact-interface';
 import {ContactModalComponent} from '../contact-modal/contact-modal.component';
-import {CONTACT} from '../dummy-contacts';
+import {DUMMY_CONTACTS} from '../dummy-contacts';
 
 
 @Component({
@@ -15,7 +15,7 @@ import {CONTACT} from '../dummy-contacts';
 })
 export class ContactComponent {
   displayedColumns: string[] = ['select', 'no', 'firstName', 'lastName', 'phoneNumber', 'email', 'editIcon', 'deleteIcon'];
-  dataSource = new MatTableDataSource<Contact>(CONTACT);
+  dataSource = new MatTableDataSource<Contact>(DUMMY_CONTACTS);
   selection = new SelectionModel<Contact>(true, []);
 
   isAllSelected(): boolean {
@@ -46,7 +46,9 @@ export class ContactComponent {
       firstName: '',
       lastName: '',
       phoneNumber: '',
-      email: ''
+      email: '',
+      userName: '',
+      password: ''
     };
     this.edit(newContact, this.dataSource.data.length);
   }
