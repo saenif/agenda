@@ -3,6 +3,8 @@ import {Routes, RouterModule} from '@angular/router';
 
 import {ContactComponent} from './contacts/contact/contact.component';
 import {LoginComponent} from './login/login/login.component';
+import {ContactsModule} from './contacts/contacts.module';
+import {LoginModule} from './login/login.module';
 
 const routes: Routes = [
   {path: 'contacts', component: ContactComponent},
@@ -11,7 +13,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    ContactsModule,
+    LoginModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
