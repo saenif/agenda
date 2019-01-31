@@ -1,19 +1,19 @@
- <form [formGroup]="userForm">
+ <form [formGroup]="contactForm">
     <label for="firstName">First Name</label>
     <input formControlName="firstName" id="firstName"/>
-    <app-control-messages [control]="userForm.controls.firstName"></app-control-messages>
+    <app-control-messages [control]="contactForm.controls.firstName"></app-control-messages>
 
     <label for="lastName">Last Name</label>
     <input formControlName="lastName" id="lastName"/>
-    <app-control-messages [control]="userForm.controls.email"></app-control-messages>
+    <app-control-messages [control]="contactForm.controls.email"></app-control-messages>
 
     <label for="phoneNumber">Phone Number</label>
     <input formControlName="phoneNumber" id="phoneNumber"/>
-    <app-control-messages [control]="userForm.controls.email"></app-control-messages>
+    <app-control-messages [control]="contactForm.controls.email"></app-control-messages>
 
     <label for="email">Email</label>
     <input formControlName="email" id="email"/>
-    <app-control-messages [control]="userForm.controls.email"></app-control-messages>
+    <app-control-messages [control]="contactForm.controls.email"></app-control-messages>
 
-    <button type="submit" [mat-dialog-close]="saveContact()" [disabled]="!userForm.valid">Submit</button>
+    <button type="submit" [mat-dialog-close]="saveContact()" [disabled]="!contactForm.valid">Submit</button>
   </form>

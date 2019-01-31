@@ -13,7 +13,7 @@ import {Contact} from '../contact-interface';
   styleUrls: ['./contact-modal.component.scss']
 })
 export class ContactModalComponent {
-  userForm: any;
+  contactForm: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -21,7 +21,7 @@ export class ContactModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: Contact) {
 
     const contact: Contact = this.data['contact'];
-    this.userForm = this.formBuilder.group({
+    this.contactForm = this.formBuilder.group({
       'firstName': [contact.firstName, Validators.min(1)],
       'lastName': [contact.lastName, Validators.min(1)],
       'phoneNumber': [contact.phoneNumber, Validators.min(1)],
@@ -30,12 +30,12 @@ export class ContactModalComponent {
   }
 
   saveContact(): Contact {
-    if (this.userForm.dirty && this.userForm.valid) {
+    if (this.contactForm.dirty && this.contactForm.valid) {
       return {
-        firstName: this.userForm.value.firstName,
-        lastName: this.userForm.value.lastName,
-        phoneNumber: this.userForm.value.phoneNumber,
-        email: this.userForm.value.email
+        firstName: this.contactForm.value.firstName,
+        lastName: this.contactForm.value.lastName,
+        phoneNumber: this.contactForm.value.phoneNumber,
+        email: this.contactForm.value.email
       };
     }
   }
