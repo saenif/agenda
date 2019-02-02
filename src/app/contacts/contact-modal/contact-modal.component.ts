@@ -21,10 +21,10 @@ export class ContactModalComponent {
 
     const contact: Contact = this.data['contact'];
     this.contactForm = this.formBuilder.group({
-      'firstName': [contact.firstName, Validators.min(1)],
-      'lastName': [contact.lastName, Validators.min(1)],
-      'phoneNumber': [contact.phoneNumber, Validators.min(1)],
-      'email': [contact.email, Validators.min(1)]
+      'firstName': [contact.firstName, Validators.required],
+      'lastName': [contact.lastName, Validators.required],
+      'phoneNumber': [contact.phoneNumber, Validators.required],
+      'email': [contact.email, Validators.required]
     });
   }
 
@@ -40,8 +40,8 @@ export class ContactModalComponent {
     }
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  cancelEdit(): void {
+   this.dialogRef.close();
   }
 
 }

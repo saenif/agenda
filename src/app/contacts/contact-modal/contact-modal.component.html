@@ -1,19 +1,25 @@
- <form [formGroup]="contactForm">
-    <label for="firstName">First Name</label>
-    <input formControlName="firstName" id="firstName"/>
-    <app-control-messages [control]="contactForm.controls.firstName"></app-control-messages>
+<form [formGroup]="contactForm">
+  <label for="firstName">First Name</label>
+  <input formControlName="firstName" id="firstName"/>
+  <app-control-messages [control]="contactForm.controls.firstName"></app-control-messages>
 
-    <label for="lastName">Last Name</label>
-    <input formControlName="lastName" id="lastName"/>
-    <app-control-messages [control]="contactForm.controls.lastName"></app-control-messages>
+  <label for="lastName">Last Name</label>
+  <input formControlName="lastName" id="lastName"/>
+  <app-control-messages [control]="contactForm.controls.lastName"></app-control-messages>
 
-    <label for="phoneNumber">Phone Number</label>
-    <input formControlName="phoneNumber" id="phoneNumber"/>
-    <app-control-messages [control]="contactForm.controls.phoneNumber"></app-control-messages>
+  <label for="phoneNumber">Phone Number</label>
+  <input formControlName="phoneNumber" id="phoneNumber"/>
+  <app-control-messages [control]="contactForm.controls.phoneNumber"></app-control-messages>
 
-    <label for="email">Email</label>
-    <input formControlName="email" id="email"/>
-    <app-control-messages [control]="contactForm.controls.email"></app-control-messages>
+  <label for="email">Email</label>
+  <input formControlName="email" id="email"/>
+  <app-control-messages [control]="contactForm.controls.email"></app-control-messages>
 
-    <button type="submit" [mat-dialog-close]="saveContact()" [disabled]="!contactForm.valid">Submit</button>
-  </form>
+  <div class="container-fluid">
+    <div class="row align-content-start">
+      <button class="col-5 mat-button mat-raised-button mat-warn cancel" (click)="cancelEdit()">Cancel</button>
+      <div class="col-2"></div>
+      <button class="mat-button mat-raised-button col-5 submit" type="submit" [mat-dialog-close]="saveContact()" [disabled]="!contactForm.valid">Save</button>
+    </div>
+  </div>
+</form>

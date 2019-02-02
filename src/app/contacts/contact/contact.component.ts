@@ -37,7 +37,9 @@ export class ContactComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.update(result, index);
+      if (result) {
+        this.update(result, index);
+      }
     });
   }
 
@@ -78,6 +80,7 @@ export class ContactComponent {
     this.dataSource.data = newDataSource;
   }
 
-  constructor(public dialog: MatDialog) {
-  }
+
+
+  constructor(public dialog: MatDialog) {}
 }

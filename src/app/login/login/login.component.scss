@@ -1,6 +1,7 @@
 form {
   padding: 10px;
-  max-width: 320px;
+  max-width: 300px;
+  width: 100%;
   top: 30%;
   position: absolute;
 }
@@ -38,14 +39,12 @@ button {
   background-color: #337ab7;
   border: 1px solid #2e6da4;
   border-radius: 3px;
-  padding: 4px 8px;
   font-size: 1em;
   font-weight: 300;
 }
 
 button[disabled] {
   background-color: #337ab7;
-  border-color: #2e6da4;
   opacity: .65;
   cursor: not-allowed;
 }
