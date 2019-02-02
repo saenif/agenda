@@ -12,7 +12,7 @@ export class ControlMessagesComponent {
   requiredMessage = 'Required';
 
   get errorMessage() {
-    if (this.control.touched) {
+    if (this.control.errors && this.control.touched) {
       return this.requiredMessage;
     }
     return null;

@@ -30,4 +30,10 @@ export class AuthService {
     return localStorage.getItem('loggedUser');
   }
 
+  public getInvalidUserMessage(user: User): string {
+    let message: string = 'Invalid user email: ' + user.email;
+    message = message.concat(`. \nPlease consult 'predefined_user_logins.jpg' from application folder!`);
+    return message;
+  }
+
 }

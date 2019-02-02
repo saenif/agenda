@@ -26,16 +26,22 @@ export class LoginComponent {
 
   login(): void {
     if (this.loginForm.dirty && this.loginForm.valid) {
-      const user: User = {
-        email: this.loginForm.value.email,
-        password: this.loginForm.value.password
-      };
-
+      const user: User = this.getUser();
       if (this.authService.validateUser(user)) {
         this.router.navigate(['contacts']);
+      } else {
+        alert(this.authService.getInvalidUserMessage(user));
       }
     }
   }
+
+  private getUser(): User {
+    return {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password
+    };
+  }
+
 }
 
 
