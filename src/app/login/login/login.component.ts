@@ -19,8 +19,8 @@ export class LoginComponent {
     private authService: AuthService) {
 
     this.loginForm = this.formBuilder.group({
-      'email': ['', Validators.minLength(2)],
-      'password': ['', Validators.minLength(2)]
+      'email': ['', Validators.required],
+      'password': ['', Validators.required]
     });
   }
 

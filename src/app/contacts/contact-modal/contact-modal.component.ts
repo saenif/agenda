@@ -4,7 +4,6 @@ import {FormBuilder, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA} from '@angular/material';
 import {MatDialogRef} from '@angular/material/dialog';
 
-import {ValidationService} from './../../validation.service';
 import {Contact} from '../contact-interface';
 
 @Component({
