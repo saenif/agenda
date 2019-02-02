@@ -7,7 +7,7 @@
     <app-control-messages [control]="loginForm.controls.email"></app-control-messages>
 
     <label for="password">Password</label>
-    <input formControlName="password" id="password"/>
+    <input type="password" formControlName="password" id="password"/>
     <app-control-messages [control]="loginForm.controls.password"></app-control-messages>
 
     <button type="submit" [disabled]="!loginForm.valid">Submit</button>

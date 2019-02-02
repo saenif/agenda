@@ -13,7 +13,12 @@ export class AuthService {
   }
 
   public validateUser(user: User): boolean {
-    const validContact: Contact = DUMMY_CONTACTS.find(contact => contact.email === user.email);
+    const validContact: Contact = DUMMY_CONTACTS.find((contact: Contact) => {
+      if (contact.email === user.email &&
+        contact.password === user.password) {
+        return true;
+      }
+    });
     if (validContact) {
       this.storeActiveUser(validContact);
       return true;
@@ -31,8 +36,8 @@ export class AuthService {
   }
 
   public getInvalidUserMessage(user: User): string {
-    let message: string = 'Invalid user email: ' + user.email;
-    message = message.concat(`. \nPlease consult 'predefined_user_logins.jpg' from application folder!`);
+    let message = 'Invalid user email or password!';
+    message = message.concat(`\nPlease consult 'predefined_user_logins.jpg' from application folder!`);
     return message;
   }
 
