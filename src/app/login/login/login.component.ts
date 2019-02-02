@@ -30,7 +30,7 @@ export class LoginComponent {
       if (this.authService.validateUser(user)) {
         this.router.navigate(['contacts']);
       } else {
-        alert(this.authService.getInvalidUserMessage(user));
+        alert(this.authService.getInvalidUserMessage());
       }
     }
   }

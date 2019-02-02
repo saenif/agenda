@@ -35,9 +35,9 @@ export class AuthService {
     return localStorage.getItem('loggedUser');
   }
 
-  public getInvalidUserMessage(user: User): string {
+  public getInvalidUserMessage(): string {
     let message = 'Invalid user email or password!';
-    message = message.concat(`\nPlease consult 'predefined_user_logins.jpg' from application folder!`);
+    message = message.concat(`\nPlease consult 'predefined_user_logins.png' from application folder!`);
     return message;
   }
 
