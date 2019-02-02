@@ -8,9 +8,11 @@ import {MaterialModule} from '../material.module';
 import {ContactComponent} from './contact/contact.component';
 import {ContactModalComponent} from './contact-modal/contact-modal.component';
 import {CommunicationModule} from '../communication/communication.module';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
-  declarations: [ContactComponent, ContactModalComponent],
+  declarations: [ContactComponent, ContactModalComponent, ToolbarComponent, LogoutComponent],
   imports: [
     CommonModule,
     MaterialModule,
