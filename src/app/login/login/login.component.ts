@@ -32,7 +32,6 @@ export class LoginComponent {
       };
 
       if (this.authService.validateUser(user)) {
-        alert(user.email);
         this.router.navigate(['contacts']);
       }
     }

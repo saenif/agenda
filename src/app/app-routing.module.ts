@@ -10,6 +10,7 @@ import {AccessGuard} from './communication/access-guard';
 const routes: Routes = [
   {path: 'contacts', component: ContactComponent, canActivate: [AccessGuard]},
   {path: 'login', component: LoginComponent},
+  {path: '**', redirectTo: '/login', pathMatch: 'full'},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
 ];
 

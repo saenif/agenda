@@ -7,19 +7,27 @@ import {DUMMY_CONTACTS} from '../contacts/dummy-contacts';
   providedIn: 'root'
 })
 export class AuthService {
-  private userLogged = false;
 
   public isLoggedIn(): boolean {
-    return this.userLogged;
+    return this.getActiveUser() ? true : false;
   }
 
   public validateUser(user: User): boolean {
     const validContact: Contact = DUMMY_CONTACTS.find(contact => contact.email === user.email);
     if (validContact) {
-      this.userLogged = true;
+      this.storeActiveUser(validContact);
       return true;
     }
     return false;
+  }
+
+  private storeActiveUser(contact: Contact) {
+    localStorage.clear();
+    localStorage.setItem('loggedUser', JSON.stringify(contact.email));
+  }
+
+  private getActiveUser(): any {
+    return localStorage.getItem('loggedUser');
   }
 
 }
