@@ -13,6 +13,7 @@ import {Contact} from '../contact-interface';
 })
 export class ContactModalComponent {
   contactForm: any;
+  phoneNumber = 'daf';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,8 +41,14 @@ export class ContactModalComponent {
     }
   }
 
+  isDigit(value: string): boolean {
+    console.log(value);
+    const regExp: RegExp = new RegExp(/[0-9]/);
+    return regExp.test(value);
+  }
+
   cancelEdit(): void {
-   this.dialogRef.close();
+    this.dialogRef.close();
   }
 
 }
