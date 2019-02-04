@@ -1,9 +1,6 @@
 form {
   padding: 10px;
-  max-width: 300px;
-  width: 100%;
-  top: 30%;
-  position: absolute;
+  max-width: 320px;
 }
 
 label {
@@ -34,24 +31,21 @@ textarea {
 }
 
 button {
+  &.submit {
+    color: #fff;
+    background-color: #337ab7;
+  }
+
   margin-top: 4px;
-  color: #fff;
-  background-color: #337ab7;
-  border: 1px solid #2e6da4;
   border-radius: 3px;
   font-size: 1em;
   font-weight: 300;
 }
 
-button[disabled] {
+button.submit[disabled] {
   background-color: #337ab7;
   opacity: .65;
   cursor: not-allowed;
-}
-
-.login-container {
-  display: flex;
-  justify-content: center;
 }
 
 
